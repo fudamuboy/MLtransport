@@ -100,15 +100,15 @@ const stopsData = {
 const companiesData = [
     { name: 'Sewa Transport', logo: '🚌', rating: 4.5 },
     { name: 'Bani Transport', logo: '🚍', rating: 4.2 },
-    { name: 'Balanzan Express', logo: '🚐', rating: 4.7 },
-    { name: 'Kamilkoç', logo: '🚌', rating: 4.5 },
-    { name: 'Mali Bus', logo: '🚍', rating: 4.2 },
-    { name: 'Bary Express', logo: '🚐', rating: 4.7 },
+    { name: 'Somatra', logo: '🚐', rating: 4.7 },
+    { name: 'Air Niono', logo: '🚌', rating: 4.5 },
+    { name: 'Diarra Transport', logo: '🚍', rating: 4.2 },
+    { name: 'Wassomagni', logo: '🚐', rating: 4.7 },
 
 
 ];
 
-// Prices per route
+// Prices per rout
 const pricesData = {
     'Koulikoro': 2500,
     'Ségou': 5000,

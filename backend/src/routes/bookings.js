@@ -140,23 +140,21 @@ router.get('/:code/pdf', async (req, res) => {
         doc.pipe(res);
 
         // Header
-        doc.fontSize(24).fillColor('#FF6B00').text('Obilet Mali', { align: 'center' });
+        doc.fontSize(24).fillColor('#FF6B00').text('Sewa Transport', { align: 'center' });
         doc.fontSize(12).fillColor('#666').text('Billet de transport', { align: 'center' });
-        doc.moveDown();
-
-        // Company
-        doc.fontSize(16).fillColor('#000').text(booking.company_name, { align: 'center' });
-        doc.moveDown();
+        doc.moveDown(2);
 
         // Booking code
-        doc.rect(40, doc.y, doc.page.width - 80, 50).fill('#FFF7ED');
-        doc.fillColor('#FF6B00').fontSize(14).text('Code de réservation', 50, doc.y - 45, { align: 'center' });
-        doc.fontSize(24).text(code, { align: 'center' });
-        doc.moveDown(2);
+        const boxY = doc.y;
+        doc.rect(40, boxY, doc.page.width - 80, 60).fill('#FFF7ED');
+        doc.fillColor('#FF6B00').fontSize(14).text('Code de réservation', 50, boxY + 10, { align: 'center' });
+        doc.fontSize(24).text(code, 50, boxY + 28, { align: 'center' });
+        doc.y = boxY + 70;
+        doc.moveDown();
 
         // Trip details
         doc.fillColor('#000').fontSize(12);
-        doc.text(`Trajet: ${booking.from_city} → ${booking.to_city}`);
+        doc.text(`Trajet: ${booking.from_city} - ${booking.to_city}`);
         doc.text(`Date: ${new Date(booking.departure_time).toLocaleDateString('fr-FR')}`);
         doc.text(`Heure de départ: ${new Date(booking.departure_time).toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })}`);
         doc.text(`Durée: ${booking.duration}`);
@@ -177,7 +175,7 @@ router.get('/:code/pdf', async (req, res) => {
 
         // Footer
         doc.fontSize(10).fillColor('#666').text('Présentez ce billet à l\'embarquement.', { align: 'center' });
-        doc.text('Merci de voyager avec Obilet Mali!', { align: 'center' });
+        doc.text('Merci de voyager avec Sewa Transport!', { align: 'center' });
 
         doc.end();
     } catch (error) {
