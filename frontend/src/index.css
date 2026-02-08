@@ -1,0 +1,359 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Custom theme colors */
+@theme {
+  --color-primary-50: oklch(0.97 0.02 250);
+  --color-primary-100: oklch(0.93 0.04 250);
+  --color-primary-200: oklch(0.86 0.08 250);
+  --color-primary-300: oklch(0.76 0.12 250);
+  --color-primary-400: oklch(0.66 0.16 250);
+  --color-primary-500: oklch(0.55 0.20 250);
+  --color-primary-600: oklch(0.48 0.18 250);
+  --color-primary-700: oklch(0.40 0.16 250);
+  --color-primary-800: oklch(0.33 0.12 250);
+  --color-primary-900: oklch(0.27 0.08 250);
+}
+
+/* Base styles */
+html {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+body {
+  background-color: var(--color-gray-50, #f9fafb);
+  color: var(--color-gray-900, #111827);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Component classes */
+.btn-primary {
+  background-color: var(--color-primary-500);
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  transition: all 0.2s;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-600);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: white;
+  color: #374151;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  background-color: #f9fafb;
+}
+
+.card {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  border: 1px solid #f3f4f6;
+  padding: 1.5rem;
+  transition: all 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+}
+
+.input-field {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.75rem;
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+  outline: none;
+  transition: all 0.2s;
+  background-color: white;
+  font-size: 1rem;
+}
+
+.input-field:focus {
+  border-color: var(--color-primary-500);
+  box-shadow: 0 0 0 3px rgb(99 102 241 / 0.2);
+}
+
+.seat-available {
+  background-color: #d1fae5;
+  border: 2px solid #10b981;
+  color: #065f46;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.seat-available:hover {
+  background-color: #a7f3d0;
+  border-color: #059669;
+}
+
+.seat-selected {
+  background-color: var(--color-primary-500);
+  border: 2px solid var(--color-primary-600);
+  color: white;
+}
+
+.seat-occupied {
+  background-color: #fee2e2;
+  border: 2px solid #ef4444;
+  color: #991b1b;
+  cursor: not-allowed;
+}
+
+.text-gradient {
+  background: linear-gradient(to right, var(--color-primary-500), var(--color-primary-600));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ========================================
+   RESPONSIVE STYLES
+   ======================================== */
+
+/* Mobile styles (max-width: 640px) */
+@media (max-width: 640px) {
+
+  /* Typography adjustments */
+  h1 {
+    font-size: 1.75rem !important;
+  }
+
+  h2 {
+    font-size: 1.25rem !important;
+  }
+
+  /* Button adjustments */
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+    width: 100%;
+  }
+
+  /* Card adjustments */
+  .card {
+    padding: 1rem;
+    border-radius: 0.75rem;
+  }
+
+  /* Input adjustments */
+  .input-field {
+    padding: 0.625rem 0.75rem 0.625rem 2.5rem;
+    font-size: 0.875rem;
+  }
+
+  /* Seat buttons for mobile */
+  .seat-available,
+  .seat-selected,
+  .seat-occupied {
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+    font-size: 0.75rem !important;
+  }
+
+  /* Container padding */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Hide desktop elements on mobile */
+  .hide-mobile {
+    display: none !important;
+  }
+
+  /* Full width elements on mobile */
+  .mobile-full-width {
+    width: 100% !important;
+  }
+
+  /* Stack flex items on mobile */
+  .mobile-stack {
+    flex-direction: column !important;
+  }
+
+  /* Booking code size */
+  .booking-code {
+    font-size: 1.5rem !important;
+  }
+}
+
+/* Small mobile (max-width: 375px) */
+@media (max-width: 375px) {
+  h1 {
+    font-size: 1.5rem !important;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8125rem;
+  }
+
+  .seat-available,
+  .seat-selected,
+  .seat-occupied {
+    width: 2rem !important;
+    height: 2rem !important;
+    font-size: 0.625rem !important;
+  }
+}
+
+/* Tablet styles (641px - 1024px) */
+@media (min-width: 641px) and (max-width: 1024px) {
+
+  /* Typography adjustments */
+  h1 {
+    font-size: 2rem;
+  }
+
+  /* Card spacing */
+  .card {
+    padding: 1.25rem;
+  }
+
+  /* Container padding */
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  /* Two column grid adjustments */
+  .tablet-cols-2 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* Desktop and larger (min-width: 1025px) */
+@media (min-width: 1025px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+
+  .btn-primary:hover,
+  .btn-secondary:hover,
+  .card:hover {
+    transform: none;
+  }
+
+  /* Larger touch targets */
+  .seat-available,
+  .seat-selected,
+  .seat-occupied {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Prevent text selection on buttons */
+  button {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+}
+
+/* Safe area insets for notched devices */
+@supports (padding: max(0px)) {
+  .safe-area-inset {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+}
+
+/* Landscape orientation adjustments for mobile */
+@media (max-width: 896px) and (orientation: landscape) {
+  .modal-content {
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  /* Reduce vertical padding in landscape */
+  header {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .card {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+
+  body {
+    background: white;
+  }
+}
+
+/* Custom scrollbar for better UX */
+@media (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-primary-300);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary-400);
+  }
+}
+
+/* Utility classes for responsive design */
+.flex-wrap-mobile {
+  flex-wrap: wrap;
+}
+
+.gap-responsive {
+  gap: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .gap-responsive {
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gap-responsive {
+    gap: 1.5rem;
+  }
+}
+
+/* Text ellipsis utility */
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
